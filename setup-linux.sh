@@ -5,6 +5,33 @@ cp ./.basic.vimrc ~/.basic.vimrc
 cp ./.plug.vimrc ~/.plug.vimrc
 cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
 
-echo 'Please set gitcon***REMOVED***g by'
-echo '  git con***REMOVED***g --global user.name <your name>'
-echo '  git con***REMOVED***g --global user.email <your email>'
+# echo 'Please set gitcon***REMOVED***g by'
+# echo '  git con***REMOVED***g --global user.name <your name>'
+# echo '  git con***REMOVED***g --global user.email <your email>'
+
+gitcon***REMOVED***g() {
+    echo -n "
+===================================
+      * Git Con***REMOVED***guration *
+-----------------------------------
+Please input Git Username: "
+
+    read username
+
+    echo -n "
+-----------------------------------
+Please input Git Email: "
+
+    read email
+
+    echo -n "
+-----------------------------------
+Done!
+===================================
+"
+
+    git con***REMOVED***g --global user.name "${username***REMOVED***"
+    git con***REMOVED***g --global user.email "${email***REMOVED***"
+***REMOVED***
+
+gitcon***REMOVED***g
