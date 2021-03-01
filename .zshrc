@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# con***REMOVED***rmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh"
+***REMOVED***
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33***REMOVED***▓▒░ %F{220***REMOVED***Installing %F{33***REMOVED***DHARMA%F{220***REMOVED*** Initiative Plugin Manager (%F{33***REMOVED***zdharma/zinit%F{220***REMOVED***)…%f"
