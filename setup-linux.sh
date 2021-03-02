@@ -4,6 +4,7 @@ cp ./.vimrc ~/.vimrc
 cp ./.basic.vimrc ~/.basic.vimrc
 cp ./.plug.vimrc ~/.plug.vimrc
 cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
+cp ./.tmux.conf ~/.tmux.conf
 
 # echo 'Please set gitcon***REMOVED***g by'
 # echo '  git con***REMOVED***g --global user.name <your name>'
