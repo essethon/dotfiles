@@ -78,11 +78,11 @@ git_username=$(git con***REMOVED***g --global user.name)
 git_email=$(git con***REMOVED***g --global user.email)
 cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
 
-if (( ${+git_username***REMOVED*** )); then
+if [ -z "$git_username" ]; then
+    gitcon***REMOVED***g
+else
     git con***REMOVED***g --global user.name ${git_username***REMOVED***
     git con***REMOVED***g --global user.email ${git_email***REMOVED***
-else
-    gitcon***REMOVED***g
 ***REMOVED***
 
 echo -n "
