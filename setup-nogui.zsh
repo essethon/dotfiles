@@ -1,9 +1,10 @@
+#!/usr/bin/env zsh
+
 cp ./.functions.zsh ~/.functions.zsh
 cp ./.zshenv ~/.zshenv
 cp ./.vimrc ~/.vimrc
 cp ./.basic.vimrc ~/.basic.vimrc
 cp ./.plug.vimrc ~/.plug.vimrc
-cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
 cp ./.tmux.conf ~/.tmux.conf
 
 # echo 'Please set gitcon***REMOVED***g by'
@@ -72,4 +73,31 @@ Done!
     git con***REMOVED***g --global user.email "${email***REMOVED***"
 ***REMOVED***
 
-gitcon***REMOVED***g
+# Read git con***REMOVED***g
+git_username=$(git con***REMOVED***g --global user.name)
+git_email=$(git con***REMOVED***g --global user.email)
+cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
+
+if (( ${+git_username***REMOVED*** )); then
+    git con***REMOVED***g --global user.name ${git_username***REMOVED***
+    git con***REMOVED***g --global user.email ${git_email***REMOVED***
+else
+    gitcon***REMOVED***g
+***REMOVED***
+
+echo -n "
+
+Auto-sign commits when using git? [Y/n]:
+"
+
+read sign
+case $sign in
+n|N)
+    git con***REMOVED***g --global commit.gpgsign false
+    git con***REMOVED***g --global gpg.program $(which gpg)
+    ;;
+*)
+    git con***REMOVED***g --global commit.gpgsign true
+    git con***REMOVED***g --global gpg.program $(which gpg)
+    ;;
+esac
