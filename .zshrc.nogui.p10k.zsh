@@ -60,6 +60,12 @@ zsh-defer gpgconf --create-socketdir
 
 [[ ! -f ~/.alias.zsh ]] || source ~/.alias.zsh
 
+# Credentials, e.g. Homebrew Github API Token
+[[ ! -f ~/.credentials ]] || source ~/.credentials
+
+# Include user functions
+[[ ! -f ~/.zsh_functions ]] || source ~/.zsh_functions
+
 # To customize prompt, run `p10k con***REMOVED***gure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 (( ! ${+functions[p10k]***REMOVED*** )) || p10k ***REMOVED***nalize
