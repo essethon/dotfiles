@@ -118,14 +118,14 @@ function iterm2_print_user_vars() {
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 zsh-defer source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
-# Include user functions
-if [ -f ~/.zsh_functions ]; then
-    source ~/.zsh_functions
-***REMOVED***
-
 # Credentials, e.g. Homebrew Github API Token
 if [ -f ~/.credentials ]; then
     source ~/.credentials
+***REMOVED***
+
+# Include user functions
+if [ -f ~/.zsh_functions ]; then
+    source ~/.zsh_functions
 ***REMOVED***
 
 # To customize prompt, run `p10k con***REMOVED***gure` or edit ~/.p10k.zsh.
