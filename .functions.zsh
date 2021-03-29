@@ -19,7 +19,7 @@ if (( ${+IPINFO_API_TOKEN***REMOVED*** )); then
 ***REMOVED***
 ***REMOVED***
     (( ! ${+commands[drill]***REMOVED*** )) || DNSTOOL=drill
-    IP=$(dig +short ${1***REMOVED***)
+    IP=$($DNSTOOL +short ${1***REMOVED***)
     echo ${1***REMOVED*** 'resolved to' ${IP***REMOVED***
     curl "ipinfo.io/${IP***REMOVED***?token=${IPINFO_API_TOKEN***REMOVED***"
   ***REMOVED***
