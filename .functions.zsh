@@ -25,3 +25,7 @@ if (( ${+IPINFO_API_TOKEN***REMOVED*** )); then
     curl "ipinfo.io/${IP***REMOVED***?token=${IPINFO_API_TOKEN***REMOVED***"
   ***REMOVED***
 ***REMOVED***
+
+***REMOVED***
+  curl "ip.trickysky.com/${1***REMOVED***"
+***REMOVED***
