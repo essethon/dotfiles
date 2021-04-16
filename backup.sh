@@ -1,21 +1,21 @@
 #!/bin/bash
 
 OS="$(uname -s)"
-case "${OS***REMOVED***" in
+case "${OS}" in
     Darwin*)
-        cp ${HOME***REMOVED***/.{vimrc,basic.vimrc,plug.vimrc***REMOVED*** ./
-        cp ${HOME***REMOVED***/.gitignore_global ./
-        cp ${HOME***REMOVED***/.{zshrc,zshenv,functions.zsh***REMOVED*** ./
-        cp ${HOME***REMOVED***/.tmux.conf ./
+        cp ${HOME}/.{vimrc,basic.vimrc,plug.vimrc} ./
+        cp ${HOME}/.gitignore_global ./
+        cp ${HOME}/.{zshrc,zshenv,functions.zsh} ./
+        cp ${HOME}/.tmux.conf ./
 
-        # Remove personal info in git-con***REMOVED***g ***REMOVED***le
-        awk '!/name = |email = |signingkey = |essethon/' ${HOME***REMOVED***/.gitcon***REMOVED***g > ./.gitcon***REMOVED***g
+        # Remove personal info in git-config file
+        awk '!/name = |email = |signingkey = |essethon/' ${HOME}/.gitconfig > ./.gitconfig
         ;;
     Linux*)
-        cp ${HOME***REMOVED***/.zshrc ./.zshrc-linux-simple
+        cp ${HOME}/.zshrc ./.zshrc-linux-simple
         ;;
     *)
-        echo "Unknown OS: ${OS***REMOVED***"
+        echo "Unknown OS: ${OS}"
 esac
 
 

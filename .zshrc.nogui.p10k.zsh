@@ -1,22 +1,22 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# con***REMOVED***rmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh"
-***REMOVED***
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33***REMOVED***▓▒░ %F{220***REMOVED***Installing %F{33***REMOVED***DHARMA%F{220***REMOVED*** Initiative Plugin Manager (%F{33***REMOVED***zdharma/zinit%F{220***REMOVED***)…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33***REMOVED***▓▒░ %F{34***REMOVED***Installation successful.%f%b" || \
-        print -P "%F{160***REMOVED***▓▒░ The clone has failed.%f%b"
-***REMOVED***
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps***REMOVED*** )) && _comps[zinit]=_zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -49,9 +49,9 @@ zinit wait lucid atinit"zicompinit; zicdreplay" blockf for \
 
 
 # zsh-completions settings
-# allow autocomplete from the middle of ***REMOVED***le/folder name
+# allow autocomplete from the middle of file/folder name
 zsh-defer zstyle ':completion:*' completer _complete
-zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]***REMOVED***={[:upper:][:lower:]***REMOVED***' '+l:|=* r:|=*'
+zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 # autoload -U compinit && compinit
 unsetopt LIST_BEEP  # turn off auto completion beep
 
@@ -66,6 +66,6 @@ zsh-defer gpgconf --create-socketdir
 # Include user functions
 [[ ! -f ~/.functions.zsh ]] || source ~/.functions.zsh
 
-# To customize prompt, run `p10k con***REMOVED***gure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-(( ! ${+functions[p10k]***REMOVED*** )) || p10k ***REMOVED***nalize
+(( ! ${+functions[p10k]} )) || p10k finalize

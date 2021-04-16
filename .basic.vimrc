@@ -3,7 +3,7 @@
 "       Amir Salihefendic — @amix3k
 "
 " Awesome_version:
-"       Get this con***REMOVED***g, nice color schemes and lots of plugins!
+"       Get this config, nice color schemes and lots of plugins!
 "
 "       Install the awesome version from:
 "
@@ -33,22 +33,22 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
-" Enable ***REMOVED***letype plugins
-***REMOVED***letype plugin on
-***REMOVED***letype indent on
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
 
-" Set to auto read when a ***REMOVED***le is changed from the outside
+" Set to auto read when a file is changed from the outside
 set autoread
 au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current ***REMOVED***le
+" like <leader>w saves the current file
 let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the ***REMOVED***le 
+" :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
@@ -68,7 +68,7 @@ source $VIMRUNTIME/menu.vim
 " Turn on the Wild menu
 set wildmenu
 
-" Ignore compiled ***REMOVED***les
+" Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
     set wildignore+=.git\*,.hg\*,.svn\*
@@ -85,7 +85,7 @@ set cmdheight=1
 " A buffer becomes hidden when it is abandoned
 set hid
 
-" Con***REMOVED***gure backspace so it acts as it should act
+" Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
@@ -101,7 +101,7 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch 
 
-" Don't redraw while executing macros (good performance con***REMOVED***g)
+" Don't redraw while executing macros (good performance config)
 set lazyredraw 
 
 " For regular expressions turn magic on
@@ -157,7 +157,7 @@ endif
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
-" Use Unix as the standard ***REMOVED***le type
+" Use Unix as the standard file type
 set ffs=unix,dos,mac
 
 
@@ -167,7 +167,7 @@ set ffs=unix,dos,mac
 " Turn backup off, since most stuff is in SVN, git etc. anyway...
 set nobackup
 set nowb
-set noswap***REMOVED***le
+set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -240,7 +240,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 
 
 " Opens a new tab with the current buffer's path
-" Super useful when editing ***REMOVED***les in the same directory
+" Super useful when editing files in the same directory
 map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
@@ -253,7 +253,7 @@ try
 catch
 endtry
 
-" Return to last edit position when opening ***REMOVED***les (You want this!)
+" Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
@@ -264,13 +264,13 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()***REMOVED***%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()***REMOVED***%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to ***REMOVED***rst non-blank character
+" Remap VIM 0 to first non-blank character
 map 0 ^
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
@@ -286,7 +286,7 @@ if has("mac") || has("macunix")
   vmap <D-k> <M-k>
 endif
 
-" Delete trailing white space on save, useful for some ***REMOVED***letypes ;)
+" Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
@@ -365,7 +365,7 @@ function! CmdLine(str)
     call feedkeys(":" . a:str)
 endfunction 
 
-function! VisualSelection(direction, extra_***REMOVED***lter) range
+function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
     execute "normal! vgvy"
 

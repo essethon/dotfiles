@@ -1,22 +1,22 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
-# con***REMOVED***rmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache***REMOVED***/p10k-instant-prompt-${(%):-%n***REMOVED***.zsh"
-***REMOVED***
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33***REMOVED***▓▒░ %F{220***REMOVED***Installing %F{33***REMOVED***DHARMA%F{220***REMOVED*** Initiative Plugin Manager (%F{33***REMOVED***zdharma/zinit%F{220***REMOVED***)…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33***REMOVED***▓▒░ %F{34***REMOVED***Installation successful.%f%b" || \
-        print -P "%F{160***REMOVED***▓▒░ The clone has failed.%f%b"
-***REMOVED***
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps***REMOVED*** )) && _comps[zinit]=_zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -51,9 +51,9 @@ zsh-defer zinit wait lucid atinit"zicompinit; zicdreplay" blockf for \
     zdharma/fast-syntax-highlighting
 
 # zsh-completions settings
-# allow autocomplete from the middle of ***REMOVED***le/folder name
+# allow autocomplete from the middle of file/folder name
 zsh-defer zstyle ':completion:*' completer _complete
-zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]***REMOVED***={[:upper:][:lower:]***REMOVED***' '+l:|=* r:|=*'
+zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 # autoload -U compinit && compinit
 unsetopt LIST_BEEP  # turn off auto completion beep
 
@@ -71,9 +71,9 @@ zsh-defer gpg-connect-agent updatestartuptty /bye > /dev/null
 
 # Secretive macOS
 # ---------------
-# export SSH_AUTH_SOCK=${HOME***REMOVED***/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+# export SSH_AUTH_SOCK=${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
-# export SSH_AUTH_SOCK=${HOME***REMOVED***/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+# export SSH_AUTH_SOCK=${HOME}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # pyenv
 # -----
@@ -85,8 +85,8 @@ zsh-defer -c 'eval "$(pyenv virtualenv-init - --no-rehash)"'
 # ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
 # To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following
 # to your ~/.zshrc:
-# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --pre***REMOVED***x openssl@1.1)"
-# `brew --pre***REMOVED***x` is slow when initializing zsh. We use literal path here.
+# export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# `brew --prefix` is slow when initializing zsh. We use literal path here.
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 zsh-defer -c 'eval "$(rbenv init - --no-rehash)"'
@@ -107,12 +107,12 @@ zsh-defer -c 'eval "$(perl -I$HOME/.local/perl5/lib/perl5 -Mlocal::lib=$HOME/.lo
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
 
 # iTerm2 shell integration
-***REMOVED***--
-zsh-defer test -e "${HOME***REMOVED***/.iterm2_shell_integration.zsh" && source "${HOME***REMOVED***/.iterm2_shell_integration.zsh" || true
+# ------------------------
+zsh-defer test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 function iterm2_print_user_vars() {
 	iterm2_set_user_var proxy_status $([ -z "$ALL_PROXY" ] || echo "📡")
-***REMOVED***
+}
 
 # Google Cloud SDK
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
@@ -124,6 +124,6 @@ zsh-defer source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/c
 # Include user functions
 [[ ! -f ~/.functions.zsh ]] || source ~/.functions.zsh
 
-# To customize prompt, run `p10k con***REMOVED***gure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

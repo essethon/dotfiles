@@ -5,8 +5,8 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
-    let g:ctrlp_user_command = '***REMOVED***nd %s -type f'
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-***REMOVED***les -co --exclude-standard']
+    let g:ctrlp_user_command = 'find %s -type f'
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
     let g:ctrlp_clear_cache_on_exit = 0
 
 " NerdTree
@@ -28,14 +28,14 @@ Plug 'dense-analysis/ale'
     \   'javascript': ['jshint'],
     \   'python': ['flake8'],
     \   'go': ['go', 'golint', 'errcheck']
-    \***REMOVED***
+    \}
 
     nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
     " Disabling highlighting
     let g:ale_set_highlights = 0
 
-    " Only run linting when saving the ***REMOVED***le
+    " Only run linting when saving the file
     let g:ale_lint_on_text_changed = 'never'
     let g:ale_lint_on_enter = 0
 

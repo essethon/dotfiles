@@ -7,15 +7,15 @@
 	gpgsign = true
 [http "https://github.com"]
     # proxy = http://localhost:1087
-[***REMOVED***lter "lfs"]
+[filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-	process = git-lfs ***REMOVED***lter-process
+	process = git-lfs filter-process
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
-	excludes***REMOVED***le = ~/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

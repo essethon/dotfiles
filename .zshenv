@@ -14,7 +14,7 @@ then
 
     (( $PATH[(I)$GOROOT] )) || export PATH="$GOROOT/bin:$PATH"
     (( $PATH[(I)$GOBIN] )) || export PATH="$GOBIN:$PATH"
-***REMOVED***
+fi
 
 # Rust
 [[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env

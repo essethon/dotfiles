@@ -1,15 +1,15 @@
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33***REMOVED***▓▒░ %F{220***REMOVED***Installing %F{33***REMOVED***DHARMA%F{220***REMOVED*** Initiative Plugin Manager (%F{33***REMOVED***zdharma/zinit%F{220***REMOVED***)…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33***REMOVED***▓▒░ %F{34***REMOVED***Installation successful.%f%b" || \
-        print -P "%F{160***REMOVED***▓▒░ The clone has failed.%f%b"
-***REMOVED***
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
-(( ${+_comps***REMOVED*** )) && _comps[zinit]=_zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -41,9 +41,9 @@ zsh-defer zinit wait lucid atinit"zicompinit; zicdreplay" blockf for \
 
 
 # zsh-completions settings
-# allow autocomplete from the middle of ***REMOVED***le/folder name
+# allow autocomplete from the middle of file/folder name
 zsh-defer zstyle ':completion:*' completer _complete
-zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]***REMOVED***={[:upper:][:lower:]***REMOVED***' '+l:|=* r:|=*'
+zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 # autoload -U compinit && compinit
 unsetopt LIST_BEEP  # turn off auto completion beep
 

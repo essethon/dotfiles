@@ -7,9 +7,9 @@ cp ./.basic.vimrc ~/.basic.vimrc
 cp ./.plug.vimrc ~/.plug.vimrc
 cp ./.tmux.conf ~/.tmux.conf
 
-# echo 'Please set gitcon***REMOVED***g by'
-# echo '  git con***REMOVED***g --global user.name <your name>'
-# echo '  git con***REMOVED***g --global user.email <your email>'
+# echo 'Please set gitconfig by'
+# echo '  git config --global user.name <your name>'
+# echo '  git config --global user.email <your email>'
 
 os=`uname`
 
@@ -18,14 +18,14 @@ read theme
 case $theme in
 2)
     echo "Using Spaceship-prompt."
-    cp ./.zshrc.nogui.spaceship.zsh ${HOME***REMOVED***/.zshrc
+    cp ./.zshrc.nogui.spaceship.zsh ${HOME}/.zshrc
     case $os in
     Darwin|FreeBSD)
-        echo "Using BSD style con***REMOVED***g ***REMOVED***les."
-        cp ./.alias.bsd.zsh ${HOME***REMOVED***/.alias.zsh;;
+        echo "Using BSD style config files."
+        cp ./.alias.bsd.zsh ${HOME}/.alias.zsh;;
     Linux)
-        echo "Using GNU stype con***REMOVED***g ***REMOVED***les."
-        cp ./.alias.gnu.zsh ${HOME***REMOVED***/.alias.zsh;;
+        echo "Using GNU stype config files."
+        cp ./.alias.gnu.zsh ${HOME}/.alias.zsh;;
     *)
         echo "Unsupported Operating System. Exiting."
         exit 1;;
@@ -33,14 +33,14 @@ case $theme in
     ;;
 *)
     echo "Using Powerlevel10k"
-    cp ./.zshrc.nogui.p10k.zsh ${HOME***REMOVED***/.zshrc
+    cp ./.zshrc.nogui.p10k.zsh ${HOME}/.zshrc
     case $os in
     Darwin|FreeBSD)
-        echo "Using BSD style con***REMOVED***g ***REMOVED***les."
-        cp ./.alias.bsd.zsh ${HOME***REMOVED***/.alias.zsh;;
+        echo "Using BSD style config files."
+        cp ./.alias.bsd.zsh ${HOME}/.alias.zsh;;
     Linux)
-        echo "Using GNU stype con***REMOVED***g ***REMOVED***les."
-        cp ./.alias.gnu.zsh ${HOME***REMOVED***/.alias.zsh;;
+        echo "Using GNU stype config files."
+        cp ./.alias.gnu.zsh ${HOME}/.alias.zsh;;
     *)
         echo "Unsupported Operating System. Exiting."
         exit 1;;
@@ -48,10 +48,10 @@ case $theme in
     ;;
 esac
 
-gitcon***REMOVED***g() {
+gitconfig() {
     echo -n "
 ===================================
-      * Git Con***REMOVED***guration *
+      * Git Configuration *
 -----------------------------------
 Please input Git Username: "
 
@@ -69,21 +69,21 @@ Done!
 ===================================
 "
 
-    git con***REMOVED***g --global user.name "${username***REMOVED***"
-    git con***REMOVED***g --global user.email "${email***REMOVED***"
-***REMOVED***
+    git config --global user.name "${username}"
+    git config --global user.email "${email}"
+}
 
-# Read git con***REMOVED***g
-git_username=$(git con***REMOVED***g --global user.name)
-git_email=$(git con***REMOVED***g --global user.email)
-cp ./.gitcon***REMOVED***g ~/.gitcon***REMOVED***g
+# Read git config
+git_username=$(git config --global user.name)
+git_email=$(git config --global user.email)
+cp ./.gitconfig ~/.gitconfig
 
 if [ -z "$git_username" ]; then
-    gitcon***REMOVED***g
+    gitconfig
 else
-    git con***REMOVED***g --global user.name ${git_username***REMOVED***
-    git con***REMOVED***g --global user.email ${git_email***REMOVED***
-***REMOVED***
+    git config --global user.name ${git_username}
+    git config --global user.email ${git_email}
+fi
 
 echo -n "
 
@@ -93,11 +93,10 @@ Auto-sign commits when using git? [Y/n]:
 read sign
 case $sign in
 n|N)
-    git con***REMOVED***g --global commit.gpgsign false
-    git con***REMOVED***g --global gpg.program $(which gpg)
+    git config --global commit.gpgsign false
     ;;
 *)
-    git con***REMOVED***g --global commit.gpgsign true
-    git con***REMOVED***g --global gpg.program $(which gpg)
+    git config --global commit.gpgsign true
+    git config --global gpg.program $(which gpg)
     ;;
 esac

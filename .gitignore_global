@@ -1,5 +1,5 @@
 ####################################
-######## OS generated ***REMOVED***les ########
+######## OS generated files ########
 ####################################
 .DS_Store
 .DS_Store?
@@ -26,8 +26,8 @@ cmake-build-*/
 # Pyenv Python Version
 .python-version
 
-***REMOVED***-
+# -----------------------
 # Languages
-***REMOVED***-
+# -----------------------
 # Python
 *.picklecache
