@@ -10,4 +10,6 @@ alias lh="ls -aGhl"
 
 alias mv='mv -i'
 
+# Navigate
 alias up='cd ..'
+alias h='cd'

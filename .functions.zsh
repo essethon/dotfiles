@@ -27,5 +27,4 @@ if (( ${+IPINFO_API_TOKEN} )); then
 fi
 
 function ipp() {
-  curl "ip.trickysky.com/${1}"
 }
