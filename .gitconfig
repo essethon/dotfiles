@@ -15,7 +15,6 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
-	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -26,4 +25,4 @@
 [pull]
 	ff = only
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /usr/local/Cellar/gnupg/2.3.1/bin/gpg

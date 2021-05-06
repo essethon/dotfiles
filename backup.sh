@@ -9,7 +9,7 @@ case "${OS}" in
         cp ${HOME}/.tmux.conf ./
 
         # Remove personal info in git-config file
-        awk '!/name = |email = |signingkey = |essethon/' ${HOME}/.gitconfig > ./.gitconfig
+        awk '!/name = |email = |signingkey = |essethon|stdgeodesic/' ${HOME}/.gitconfig > ./.gitconfig
         awk '!/trickysky/' ${HOME}/.functions.zsh > ./.functions.zsh
         ;;
     Linux*)
