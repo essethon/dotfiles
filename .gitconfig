@@ -26,3 +26,5 @@
 	ff = only
 [gpg]
 	program = /usr/local/Cellar/gnupg/2.3.1/bin/gpg
+[init]
+	defaultBranch = main
