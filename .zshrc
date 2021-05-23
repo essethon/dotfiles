@@ -97,8 +97,8 @@ zsh-defer -c 'eval "$(rbenv init - --no-rehash)"'
 # for your modules to persist across updates we recommend using `local::lib`.
 
 # You can set that up like this:
-# PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-zsh-defer -c 'eval "$(perl -I$HOME/.local/perl5/lib/perl5 -Mlocal::lib=$HOME/.local/perl5)"'
+# PERL_MM_OPT="INSTALL_BASE=$HOME/.local/perl5" cpan local::lib
+# zsh-defer -c 'eval "$(perl -I$HOME/.local/perl5/lib/perl5 -Mlocal::lib=$HOME/.local/perl5)"'
 
 [[ ! -f ~/.alias.zsh ]] || source ~/.alias.zsh
 
