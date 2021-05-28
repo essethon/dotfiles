@@ -35,14 +35,22 @@ Plug 'dense-analysis/ale'
   let g:ale_linters = {
   \   'javascript': ['jshint'],
   \   'python': ['flake8'],
-  \   'go': ['go', 'golint', 'errcheck']
+  \   'go': ['go', 'golint', 'errcheck'],
+  \   'vim': ['vint'],
+  \   'cpp': ['clang'],
+  \   'c': ['clang']
   \}
-   nmap <silent> <leader>a <Plug>(ale_next_wrap)
-   " Disabling highlighting
-  let g:ale_set_highlights = 0
-   " Only run linting when saving the file
-  let g:ale_lint_on_text_changed = 'never'
+  nmap <silent> <leader>a <Plug>(ale_next_wrap)
+  " Disabling highlighting
+  let g:ale_set_highlights = 1
+  " Only run linting when saving the file
+  let g:ale_lint_on_text_changed = 'normal'
   let g:ale_lint_on_enter = 0
+  
+  " Auto-completion
+  let g:ale_completion_enabled = 1
+  set omnifunc=ale#completion#OmniFunc
+  
 
 " Beancount
 " Plug 'nathangrigg/vim-beancount'
