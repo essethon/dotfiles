@@ -31,3 +31,6 @@ cmake-build-*/
 # -----------------------
 # Python
 *.picklecache
+
+# clangd cache
+.cache/clangd
