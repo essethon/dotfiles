@@ -8,7 +8,7 @@ export LC_ALL=en_US.UTF-8
 # Go
 if [ -d "$HOME/.go" ]
 then
-    export GOROOT=$HOME/.go/go1.16.4
+    export GOROOT=$HOME/.go/go1.16.5
     export GOPATH=$HOME/Developer/local/go
     export GOBIN=$GOPATH/bin
 
