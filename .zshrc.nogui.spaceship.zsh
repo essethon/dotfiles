@@ -50,6 +50,12 @@ unsetopt LIST_BEEP  # turn off auto completion beep
 # GPG Agent forward
 zsh-defer gpgconf --create-socketdir
 
+# If using WSL on Windows, we use keychain to manage SSH Keys.
+if (( $+commands[keychain] )); then
+  keychain -q --nogui $HOME/.ssh/id_ed25519
+  source $HOME/.keychain/$HOST-sh
+fi
+
 [[ ! -f ~/.alias.zsh ]] || source ~/.alias.zsh
 
 # Credentials, e.g. Homebrew Github API Token
