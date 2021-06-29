@@ -16,6 +16,11 @@ then
     # (( $PATH[(I)$GOROOT] )) || export PATH="$GOROOT/bin:$PATH"
     (( $PATH[(I)$GOBIN] )) || export PATH="$GOBIN:$PATH"
 fi
+if [ -d "/usr/local/go" ] # Go is installed manually
+then
+  export GOROOT=/usr/local/go
+  (( $PATH[(I)$GOROOT] )) || export PATH="$GOROOT/bin:$PATH"
+fi
 
 # Rust
 [[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
