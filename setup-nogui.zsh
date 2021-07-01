@@ -84,7 +84,7 @@ if [ -z "$git_username" ]; then
 else
     git config --global user.name ${git_username}
     git config --global user.email ${git_email}
-    if [ -z "$git_signingkey" ]; then
+    if [ "$git_signingkey" ]; then
       git config --global user.signingkey ${git_signingkey}
     fi
 fi
