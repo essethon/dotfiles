@@ -55,13 +55,29 @@ zsh-defer zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:uppe
 # autoload -U compinit && compinit
 unsetopt LIST_BEEP  # turn off auto completion beep
 
-# GPG Agent forward
-zsh-defer gpgconf --create-socketdir
+# GPG Agent and SSH Agent
+# In WSL2, use a GPG bridge to access yubikey
+UNAME=`uname -a`
+if (( $UNAME[(I)WSL2] )); then
+  # GPG Socket
+  # Removing Linux GPG Agent socket and replacing it by link to wsl2-ssh-pageant GPG socket
+  export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent 
+  ss -a | grep -q $GPG_AGENT_SOCK 
+  if [ $? -ne 0 ]; then
+    rm -rf $GPG_AGENT_SOCK
+    setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" &>/dev/null &
+  fi
 
-# If using WSL on Windows, we use keychain to manage SSH Keys.
-if (( $+commands[keychain] )); then
-  keychain -q --nogui $HOME/.ssh/id_ed25519
-  source $HOME/.keychain/$HOST-sh
+  # SSH Socket
+  # Removing Linux SSH socket and replacing it by link to wsl2-ssh-pageant socket
+  export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
+  ss -a | grep -q $SSH_AUTH_SOCK
+  if [ $? -ne 0 ]; then
+    rm -f $SSH_AUTH_SOCK
+    setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe &>/dev/null &
+  fi
+else
+  zsh-defer gpgconf --create-socketdir
 fi
 
 [[ ! -f ~/.alias.zsh ]] || source ~/.alias.zsh
