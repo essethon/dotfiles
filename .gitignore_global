@@ -33,5 +33,6 @@ cmake-build-*/
 *.picklecache
 
 # clangd cache
-.cache/clangd
+.cache/
 .clangd/
+compile_commands.json
